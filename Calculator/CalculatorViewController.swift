@@ -7,8 +7,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CalculatorViewController: UIViewController {
     
+    // MARK: - IBOutlets
     @IBOutlet weak var lcdDisplay: UIView!
     @IBOutlet weak var displayLabel: UILabel!
 
@@ -24,7 +25,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var btn9: UIButton!
     
     @IBOutlet weak var btnClear: UIButton!
-    @IBOutlet weak var btnPosNeg: UIButton!
+    @IBOutlet weak var btnNegate: UIButton!
     @IBOutlet weak var btnPercent: UIButton!
     @IBOutlet weak var btnDecimal: UIButton!
     
@@ -34,18 +35,24 @@ class ViewController: UIViewController {
     @IBOutlet weak var btnSubtract: UIButton!
     @IBOutlet weak var btnEquals: UIButton!
     
+    // MARK: - Color Themes
+    // gray:            #a6a6a6
+    // dark gray:       #333333
+    // orange:          #ff9f0a
     var currentTheme: CalculatorTheme {
-        // gray:            #a6a6a6
-        // dark gray:       #333333
-        // orange:          #ff9f0a
         return CalculatorTheme(backgroundColor: "#000000", displayColor: "#FFFFFF", extraFunctionBtnBgColor: "#a6a6a6", extraFunctionBtnTextColor: "#FFFFFF", operationBtnBgColor: "#ff9f0a", operationBtnTextColor: "#FFFFFF", keypadBtnBgColor: "#333333", keypadBtnTextColor: "#FFFFFF")
     }
     
+    // MARK: - Calculator Engine
+    private var calculatorEngine = CalculatorEngine()
+    
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         decorateView()
     }
 
+    // MARK: - Decorate
     private func decorateView() {
         view.backgroundColor = UIColor(hex: currentTheme.backgroundColor)
         lcdDisplay.backgroundColor = .clear
@@ -68,7 +75,7 @@ class ViewController: UIViewController {
         decorateKeypadButton(btnDecimal)
         
         decorateExtraFunctionButton(btnClear)
-        decorateExtraFunctionButton(btnPosNeg)
+        decorateExtraFunctionButton(btnNegate)
         decorateExtraFunctionButton(btnPercent)
         
         decorateOperationButton(btnDivide)
@@ -109,6 +116,52 @@ class ViewController: UIViewController {
         button.setTitleColor(UIColor(hex: currentTheme.extraFunctionBtnTextColor), for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 40)
     }
-
+    
+    // MARK: - IBActions
+    @IBAction private func clearPressed() {
+        calculatorEngine.clearPressed()
+    }
+    
+    @IBAction private func negatePressed() {
+        calculatorEngine.negatePressed()
+    }
+    
+    @IBAction private func percentagePressed() {
+        calculatorEngine.percentagePressed()
+    }
+    
+    // MARK: - Operations
+    
+    @IBAction private func addPressed() {
+        calculatorEngine.addPressed()
+    }
+    
+    @IBAction private func subtractPressed() {
+        calculatorEngine.subtractPressed()
+    }
+    
+    @IBAction private func multiplyPressed() {
+        calculatorEngine.multiplyPressed()
+    }
+    
+    @IBAction private func dividePressed() {
+        calculatorEngine.dividePressed()
+    }
+    
+    @IBAction private func equalsPressed() {
+        calculatorEngine.equalsPressed()
+    }
+    
+    // MARK: - Number Input
+    
+    @IBAction private func decimalPressed() {
+        calculatorEngine.decimalPressed()
+    }
+    
+    @IBAction private func numberPressed(_ sender: UIButton) {
+        let number = sender.tag
+        calculatorEngine.numberPressed(number)
+    }
 }
+
 

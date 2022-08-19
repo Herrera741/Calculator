@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		B4E8421728AA2EE5006958B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E8421628AA2EE5006958B4 /* AppDelegate.swift */; };
 		B4E8421928AA2EE5006958B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E8421828AA2EE5006958B4 /* SceneDelegate.swift */; };
-		B4E8421B28AA2EE5006958B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E8421A28AA2EE5006958B4 /* ViewController.swift */; };
+		B4E8421B28AA2EE5006958B4 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E8421A28AA2EE5006958B4 /* CalculatorViewController.swift */; };
 		B4E8421E28AA2EE5006958B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4E8421C28AA2EE5006958B4 /* Main.storyboard */; };
 		B4E8422028AA2EEA006958B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4E8421F28AA2EEA006958B4 /* Assets.xcassets */; };
 		B4E8422328AA2EEA006958B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4E8422128AA2EEA006958B4 /* LaunchScreen.storyboard */; };
@@ -19,6 +19,7 @@
 		B4E8424728ACBF4D006958B4 /* CalculatorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E8424628ACBF4D006958B4 /* CalculatorTheme.swift */; };
 		B4E8424928ACBFBF006958B4 /* UIColor+HexValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E8424828ACBFBF006958B4 /* UIColor+HexValue.swift */; };
 		B4E8424B28ADED11006958B4 /* MathEquation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E8424A28ADED10006958B4 /* MathEquation.swift */; };
+		B4E8424D28AF6FAB006958B4 /* CalculatorEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E8424C28AF6FAB006958B4 /* CalculatorEngine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +43,7 @@
 		B4E8421328AA2EE5006958B4 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4E8421628AA2EE5006958B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4E8421828AA2EE5006958B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B4E8421A28AA2EE5006958B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B4E8421A28AA2EE5006958B4 /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 		B4E8421D28AA2EE5006958B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B4E8421F28AA2EEA006958B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4E8422228AA2EEA006958B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,6 +56,7 @@
 		B4E8424628ACBF4D006958B4 /* CalculatorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTheme.swift; sourceTree = "<group>"; };
 		B4E8424828ACBFBF006958B4 /* UIColor+HexValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+HexValue.swift"; sourceTree = "<group>"; };
 		B4E8424A28ADED10006958B4 /* MathEquation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathEquation.swift; sourceTree = "<group>"; };
+		B4E8424C28AF6FAB006958B4 /* CalculatorEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorEngine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,9 +109,10 @@
 			children = (
 				B4E8421628AA2EE5006958B4 /* AppDelegate.swift */,
 				B4E8421828AA2EE5006958B4 /* SceneDelegate.swift */,
-				B4E8421A28AA2EE5006958B4 /* ViewController.swift */,
+				B4E8421A28AA2EE5006958B4 /* CalculatorViewController.swift */,
 				B4E8424628ACBF4D006958B4 /* CalculatorTheme.swift */,
 				B4E8424828ACBFBF006958B4 /* UIColor+HexValue.swift */,
+				B4E8424C28AF6FAB006958B4 /* CalculatorEngine.swift */,
 				B4E8424A28ADED10006958B4 /* MathEquation.swift */,
 				B4E8421C28AA2EE5006958B4 /* Main.storyboard */,
 				B4E8421F28AA2EEA006958B4 /* Assets.xcassets */,
@@ -269,9 +272,10 @@
 			files = (
 				B4E8424928ACBFBF006958B4 /* UIColor+HexValue.swift in Sources */,
 				B4E8424B28ADED11006958B4 /* MathEquation.swift in Sources */,
-				B4E8421B28AA2EE5006958B4 /* ViewController.swift in Sources */,
+				B4E8421B28AA2EE5006958B4 /* CalculatorViewController.swift in Sources */,
 				B4E8424728ACBF4D006958B4 /* CalculatorTheme.swift in Sources */,
 				B4E8421728AA2EE5006958B4 /* AppDelegate.swift in Sources */,
+				B4E8424D28AF6FAB006958B4 /* CalculatorEngine.swift in Sources */,
 				B4E8421928AA2EE5006958B4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
