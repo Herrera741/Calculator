@@ -47,11 +47,20 @@ struct CalculatorEngine {
     // MARK: - Extra Functions
     
     mutating func clearPressed() {
-        
+        mathEquation = MathEquation(leftOperand: .zero)
+        operandSide = OperandSide.leftHandSide
+        lcdDisplayText = mathEquation.leftOperand.formatted()
     }
     
     mutating func negatePressed() {
-        
+        switch operandSide {
+        case .leftHandSide:
+            mathEquation.negateLeftOperand()
+            lcdDisplayText = mathEquation.leftOperand.formatted()
+        case .rightHandSide:
+            mathEquation.negateRightOperand()
+            lcdDisplayText = mathEquation.rightOperand?.formatted() ?? "Error: unable to negate right operand"
+        }
     }
     
     mutating func percentagePressed() {
@@ -82,7 +91,7 @@ struct CalculatorEngine {
     
     mutating func equalsPressed() {
         mathEquation.execute()
-        lcdDisplayText = mathEquation.result?.formatted() ?? "Error"
+        lcdDisplayText = mathEquation.result?.formatted() ?? "Error: unable to execute operation"
     }
     
     // MARK: - Number Input
