@@ -32,6 +32,18 @@ import Foundation
 
 struct CalculatorEngine {
     
+    enum OperandSide {
+        case leftHandSide
+        case rightHandSide
+    }
+    
+    // MARK: - Math Equation
+    private var mathEquation = MathEquation(leftOperand: .zero)
+    private var operandSide = OperandSide.leftHandSide
+    
+    // MARK: - LCD Display
+    var lcdDisplayText = ""
+    
     // MARK: - Extra Functions
     
     mutating func clearPressed() {
@@ -49,23 +61,28 @@ struct CalculatorEngine {
     // MARK: - Operations
     
     mutating func addPressed() {
-        
+        mathEquation.operation = .add
+        operandSide = .rightHandSide
     }
     
     mutating func subtractPressed() {
-        
+        mathEquation.operation = .subtract
+        operandSide = .rightHandSide
     }
     
     mutating func multiplyPressed() {
-        
+        mathEquation.operation = .multiply
+        operandSide = .rightHandSide
     }
     
     mutating func dividePressed() {
-        
+        mathEquation.operation = .divide
+        operandSide = .rightHandSide
     }
     
     mutating func equalsPressed() {
-        
+        mathEquation.execute()
+        lcdDisplayText = mathEquation.result?.formatted() ?? "Error"
     }
     
     // MARK: - Number Input
@@ -75,6 +92,14 @@ struct CalculatorEngine {
     }
     
     mutating func numberPressed(_ number: Int) {
+        let decimalValue = Decimal(number)
+        lcdDisplayText = decimalValue.formatted()
         
+        switch operandSide {
+        case .leftHandSide:
+            mathEquation.leftOperand = decimalValue
+        case .rightHandSide:
+            mathEquation.rightOperand = decimalValue
+        }
     }
 }
