@@ -38,10 +38,15 @@ struct CalculatorEngine {
     }
     
     // MARK: - Math Equation
+    
     private var mathEquation = MathEquation(leftOperand: .zero)
     private var operandSide = OperandSide.leftHandSide
     
+    // MARK: - Equation History
+    private var historyLog: [MathEquation] = []
+    
     // MARK: - LCD Display
+    
     var lcdDisplayText = ""
     
     // MARK: - Extra Functions
@@ -64,7 +69,14 @@ struct CalculatorEngine {
     }
     
     mutating func percentagePressed() {
-        
+        switch operandSide {
+        case .leftHandSide:
+            mathEquation.applyPercentageToLeftOperand()
+            lcdDisplayText = mathEquation.leftOperand.formatted()
+        case .rightHandSide:
+            lcdDisplayText = mathEquation.rightOperand?.formatted() ?? "Error: unable to apply percentage to right operand"
+
+        }
     }
     
     // MARK: - Operations
@@ -91,8 +103,11 @@ struct CalculatorEngine {
     
     mutating func equalsPressed() {
         mathEquation.execute()
+        historyLog.append(mathEquation)
+        printEquationToDebugConsole()
         lcdDisplayText = mathEquation.result?.formatted() ?? "Error: unable to execute operation"
     }
+    
     
     // MARK: - Number Input
     
@@ -111,4 +126,17 @@ struct CalculatorEngine {
             mathEquation.rightOperand = decimalValue
         }
     }
+    
+    // MARK: - Debug Console
+    
+    private func printEquationToDebugConsole() {
+        print("Equation: " + mathEquation.generatePrintout())
+    }
+    
+    // MARK: - History Log
+    
+    private mutating func clearHistory() {
+        historyLog = []
+    }
+    
 }

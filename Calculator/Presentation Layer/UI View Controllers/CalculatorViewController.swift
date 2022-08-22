@@ -10,6 +10,7 @@ import UIKit
 class CalculatorViewController: UIViewController {
     
     // MARK: - IBOutlets
+    
     @IBOutlet weak var lcdDisplay: UIView!
     @IBOutlet weak var displayLabel: UILabel!
 
@@ -36,6 +37,7 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var btnEquals: UIButton!
     
     // MARK: - Color Themes
+    
     // gray:            #a6a6a6
     // dark gray:       #333333
     // orange:          #ff9f0a
@@ -44,15 +46,18 @@ class CalculatorViewController: UIViewController {
     }
     
     // MARK: - Calculator Engine
+    
     private var calculatorEngine = CalculatorEngine()
     
     // MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         decorateView()
     }
 
     // MARK: - Decorate
+    
     private func decorateView() {
         view.backgroundColor = UIColor(hex: currentTheme.backgroundColor)
         lcdDisplay.backgroundColor = .clear
@@ -118,6 +123,7 @@ class CalculatorViewController: UIViewController {
     }
     
     // MARK: - IBActions
+    
     @IBAction private func clearPressed() {
         calculatorEngine.clearPressed()
         refreshLCDDisplay()
@@ -174,6 +180,7 @@ class CalculatorViewController: UIViewController {
     }
     
     // MARK: - Refresh LCD Display
+    
     private func refreshLCDDisplay() {
         displayLabel.text = calculatorEngine.lcdDisplayText
     }
